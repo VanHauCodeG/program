@@ -10,36 +10,46 @@ let answer = Math.floor(Math.random() * (maxNum - minNum + 1));
 let score = 10;
 let high = 0;
 
-check_btn.onclick = function() {
-    const guess_input = +document.getElementById("guess-input").value;
-    if(isNaN(guess_input) || document.getElementById("guess-input").value === "" ){
-        message.textContent = 'please  enter a valid number';
+check_btn.onclick = function () {
+  const guess_input = +document.getElementById("guess-input").value;
+  if (
+    isNaN(guess_input) ||
+    document.getElementById("guess-input").value === ""
+  ) {
+    message.textContent = "please  enter a valid number";
+  } else if (guess_input < minNum || guess_input > maxNum) {
+    message.textContent = "please  enter a valid number";
+  } else if (guess_input < answer) {
+    score--;
+    displayScore.textContent = score;
+    if (score === 0) {
+      message.textContent = `Game Over! The answer was ${answer}`;
+      check_btn.disabled = true;
+    } else {
+      message.textContent = "Too low! Try again";
     }
-    else if(guess_input < minNum || guess_input > maxNum ){
-        message.textContent = 'please  enter a valid number';
+  } else if (guess_input > answer) {
+    score--;
+    displayScore.textContent = score;
+    if (score === 0) {
+      message.textContent = `Game Over! The answer was ${answer}`;
+      check_btn.disabled = true;
+    } else {
+      message.textContent = "Too high! Try again";
     }
-    else if(guess_input < answer ){
-        message.textContent = 'Too low! Try again';
-        score--;
-        displayScore.textContent = score;
-    }else if(guess_input > answer ){
-        message.textContent = 'Too high! Try again';
-        score--;
-        displayScore.textContent = score;
+  } else {
+    if (score > high) {
+      high = score;
     }
-    else{
-        if(score > high) {
-            high = score;
-        }
-        highscore.textContent = high;
-        message.textContent = 'Correct';
-    }
-}
+    highscore.textContent = high;
+    message.textContent = "Correct";
+  }
+};
 
 resetBtn.onclick = function () {
-    answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-    message.textContent = '';
-    score = 10;
-    displayScore.textContent = score;
-    document.getElementById("guess-input").value = ""
-}
+  answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  message.textContent = "";
+  score = 10;
+  displayScore.textContent = score;
+  document.getElementById("guess-input").value = "";
+};
