@@ -1,16 +1,11 @@
-# 🧮 Mini Calculator Program (Máy tính bỏ túi Mini)
-
-Ứng dụng máy tính mini với giao diện hiện đại phong cách phẳng (Flat Design), giúp rèn luyện tư duy xử lý chuỗi dữ liệu phức tạp và quản lý trạng thái ứng dụng.
-
-## 🚀 Tính năng
-
-- **Phép tính cơ bản:** Cộng (`+`), trừ (`-`), nhân (`*`), chia (`/`) giữa hai số.
-- **Xóa dữ liệu (AC):** Đặt lại toàn bộ trạng thái máy tính về ban đầu.
-- **Chặn lỗi logic:** Tự động phát hiện và hiển thị thông báo lỗi khi người dùng thực hiện phép chia cho số 0 (`Error`).
-
-## 🛠️ Kiến thức áp dụng
-
-- Quản lý trạng thái thông qua các biến `currentInput`, `previousInput`, `operation`.
-- Ép kiểu dữ liệu từ chuỗi (String) sang số (Number) để làm toán.
-- Sử dụng cấu trúc rẽ nhánh cấu trúc `switch-case` để phân loại phép tính.
-- CSS Grid và hiệu ứng bấm nút thực tế với `:active` và `:hover`.
+# 🧮 Mini Calculator Program
+A mini calculator application with a modern, flat design interface, designed to train your thinking skills in handling complex data sequences and managing application state.
+## 🚀 Features
+- **Basic Operations:** Addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) between two numbers.
+- **Clear Data (AC):** Resets the entire calculator state to its initial state.
+- **Logic Error Blocking:** Automatically detects and displays an error message when the user performs division by zero (`Error`).
+## 🛠️ Knowledge Required
+- Manage state using `currentInput`, `previousInput`, and `operation` variables.
+- Cast data types from strings to numbers for calculations.
+- Use the `switch-case` branching structure to categorize calculations.
+- CSS Grid and realistic button click effects with `:active` and `:hover`.
