@@ -2,10 +2,6 @@
 
 A minimalist, modern, and fully responsive Number Guessing Game built with pure web technologies. This project highlights efficient state management, strict type casting, and clean user experience (UX) interactions.
 
-## 🚀 Live Demo
-
-_(Optional: Insert your live deployment link here, e.g., GitHub Pages or Vercel)_
-
 ## ✨ Features
 
 - **Smart Validation:** Prevents invalid inputs (empty strings, non-numeric values, or out-of-bounds numbers) seamlessly.
