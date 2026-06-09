@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quadratic Equation Solver</title>
+  <link rel="stylesheet" href="index.css">
+  <meta name="description" content="Máy tính giải phương trình bậc 2" />
+</head>
+<body>
+  <main class="app">
+    <div class="card container">
+      <h1 class="title">Máy tính giải phương trình bậc 2</h1>
+
+      <form class="form" onsubmit="return false;">
+        <div class="field">
+          <label for="inputA">Nhập hệ số a</label>
+          <input id="inputA" type="number" step="any" placeholder="a" />
+        </div>
+
+        <div class="field">
+          <label for="inputB">Nhập hệ số b</label>
+          <input id="inputB" type="number" step="any" placeholder="b" />
+        </div>
+
+        <div class="field">
+          <label for="inputC">Nhập hệ số c</label>
+          <input id="inputC" type="number" step="any" placeholder="c" />
+        </div>
+
+        <div class="actions">
+          <button id="solveBtn" type="button" class="btn">Giải phương trình</button>
+          <button id="resetBtn" type="button" class="btn btn--secondary">Reset</button>
+        </div>
+      </form>
+
+      <section class="results">
+        <h2 class="results-title">Kết quả</h2>
+        <div class="result-row">
+          <span class="label">Delta:</span>
+          <span id="deltaOutput" class="value">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Nghiệm x1:</span>
+          <span id="x1Output" class="value">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Nghiệm x2:</span>
+          <span id="x2Output" class="value">—</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Ghi chú:</span>
+          <span id="noteOutput" class="value">—</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
