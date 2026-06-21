@@ -5,7 +5,7 @@ html {
 }
 
 .container {
-    width: 40rem;
+    width: 50rem;
     margin: 6rem auto;
     padding: 4rem;
     background-color: azure;
@@ -87,21 +87,22 @@ table th:nth-child(1) {
 }
 
 table th:nth-child(2) {
-    width: 35%;
+    width: 30%;
 }
 
 table th:nth-child(3) {
-    width: 40%;
+    width: 35%;
 }
 
 table th:nth-child(4) {
-    width: 15%;
+    width: 25%;
     text-align: center;
 }
 
 /*BUTTON STYLES*/
 .btn {
-    width: 4rem;
+    width: 5rem;
+    margin-top: 0.5rem;
     height: 2rem;
     color: white;
     font-weight: bold;
@@ -111,7 +112,8 @@ table th:nth-child(4) {
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+.btnDel:hover {
     box-shadow: 0.5rem 0.5rem 1rem rgb(156, 150, 150);
 }
 
@@ -140,4 +142,17 @@ table th:nth-child(4) {
     color: #555;
     font-weight: bold;
     z-index: 9999;
+}
+
+dialog {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+    width: 25rem;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
 }

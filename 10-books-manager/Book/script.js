@@ -1,14 +1,12 @@
-
 const api_url = "http://localhost:8000/books";
 
 const fetchBooks = async () => {
-    try{
+    try {
         const res = await fetch(api_url);
         const data = await res.json();
         const displayBox = document.getElementById("displayBox");
         displayBox.innerHTML = `
             <table>
-                <!-- Phần đầu bảng (Tiêu đề) -->
                 <thead>
                     <tr class="header">
                         <th>Id</th>
@@ -28,35 +26,34 @@ const fetchBooks = async () => {
                     <td>${key.name}</td>
                     <td>${key.author}</td>
                     <td>
-                    <button class="btnDel" onclick="deleteBook('${key.id}')">Xóa</button>
-                </td>
+                        <button class="btnDel" onclick="deleteBook(${key.id})">Xóa</button>
+                        <button class="btn" onclick="openEditModal(${key.id}, '${key.name}', '${key.author}')">Cập nhật</button>
+                    </td>
                 </tr>
             `;
-        })
-    }
-    catch (error) {
-        console.log("Loi",error.message);
+        });
+    } catch (error) {
+        console.log("Loi", error.message);
     }
 };
 fetchBooks();
 
-//add books
+//add book
 const addBook = async (title, author) => {
-    try{
+    try {
         const res = await fetch(api_url, {
             method: "POST",
-            headers: {"Content-type": "application/json"},
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify({
                 name: title,
                 author: author
             })
         });
-        if(res.ok) {
+        if (res.ok) {
             fetchBooks();
-    }
-        } 
-    catch (error) {
-        console.log("Loi",error.message);
+        }
+    } catch (error) {
+        console.log("Loi", error.message);
     }
 };
 
@@ -65,28 +62,64 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
     const taskName = name.value.trim();
     const author = document.getElementById("author");
     const taskAuthor = author.value.trim();
-    if(taskName === "" )
-    {
+    if (taskName === "") {
         alert("Chua nhap ten");
         return;
     }
     addBook(taskName, taskAuthor);
     name.value = "";
     author.value = "";
+});
 
-})
-
-//delete
-const deleteBook = async (bookId) =>{
-    try{
+// delete
+const deleteBook = async (bookId) => {
+    try {
         const res = await fetch(`${api_url}/${bookId}`, {
             method: "DELETE"
         });
-        if(res.ok) {
+        if (res.ok) {
             fetchBooks();
         }
+    } catch (error) {
+        console.log("Loi", error.message);
     }
-    catch (error) {
-        console.log("Loi",error.message);
+};
+
+//pop up[ edit]
+const openEditModal = (id, currentName, currentAuthor) => {
+    const dialog = document.getElementById("editDialog");
+    document.getElementById("editName").value = currentName;
+    document.getElementById("editAuthor").value = currentAuthor;
+    dialog.showModal(); 
+    
+    document.getElementById("btnSaveUpdate").onclick = async () => {
+        const newName = document.getElementById("editName").value.trim();
+        const newAuthor = document.getElementById("editAuthor").value.trim();
+        
+        if (newName === "" || newAuthor === "") {
+            alert("Vui lòng nhập đủ thông tin nha Hậu kkk");
+            return;
+        }
+        
+        await updateBook(id, newName, newAuthor); 
+        dialog.close(); 
+    };
+};
+
+//update
+const updateBook = async (bookId, updatedName, updatedAuthor) => {
+    try {
+        const res = await fetch(`${api_url}/${bookId}`, {
+            method: "PATCH",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({
+                name: updatedName,    
+            })
+        });
+        if (res.ok) {
+            fetchBooks(); 
+        }
+    } catch (error) {
+        console.log("Loi", error.message);
     }
 };

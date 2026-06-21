@@ -26,6 +26,22 @@
         <div id="displayBox">
         </div>
     </div>
+    <dialog id="editDialog">
+        <h3>Update Book</h3>
+        <div>
+            <label>New Name:</label>
+            <input type="text" id="editName">
+        </div>
+        <div>
+            <label>New Author:</label>
+            <input type="text" id="editAuthor">
+        </div>
+        <div style="text-align: right;">
+            <button class="btnDel" id="btnCancel"
+                onclick="document.getElementById('editDialog').close()">Cancel</button>
+            <button class="btn" id="btnSaveUpdate">Save</button>
+        </div>
+    </dialog>
     <script src="script.js"></script>
 </body>
 <footer>
